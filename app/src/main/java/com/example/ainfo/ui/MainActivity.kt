@@ -4,33 +4,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.ainfo.R
-import com.example.ainfo.utils.AnimeApiClient
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import com.example.ainfo.model.Top
+import com.example.ainfo.presenter.TopAnimePresImpl
+import com.example.ainfo.presenter.TopAnimeView
+import com.veirn.animest.di.DaggerMainComponent
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
-    val client by lazy {
-        AnimeApiClient.create()
-    }
-
-    var disposable: Disposable? = null
-
+class MainActivity : AppCompatActivity(),TopAnimeView {
+     @Inject
+     lateinit var topAnimePresImpl : TopAnimePresImpl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        showArticles();
-    }
-
-    private fun showArticles() {
-
-        disposable = client.getArticles()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                { result -> Log.v("anime", "" + result) },
-                { error -> Log.e("ERROR", error.message) }
-            )
+        var component = DaggerMainComponent.create()
+        component.inject(this)
+        topAnimePresImpl.topAnimeView = this
+        topAnimePresImpl.getTopAnime()
 
     }
+
+    override fun getanime(top: List<Top>) {
+    Log.d("animee",top.toString())
+    }
+
+
 }
