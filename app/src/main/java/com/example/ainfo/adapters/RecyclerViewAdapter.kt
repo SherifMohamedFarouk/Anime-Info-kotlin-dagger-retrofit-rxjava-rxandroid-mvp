@@ -1,6 +1,7 @@
 package com.example.ainfo.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.example.ainfo.R
 import com.example.ainfo.model.Top
 import com.example.ainfo.model.TopModel
+import com.example.ainfo.ui.details.AnimeDetailsActivity
 import kotlinx.android.synthetic.main.anime_list.view.*
 
     class RecyclerViewAdapter(private var context: FragmentActivity?,private var dataList:ArrayList<Top>):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
@@ -26,7 +28,14 @@ import kotlinx.android.synthetic.main.anime_list.view.*
 //            holder.textView.text=dataList[position].title
             Glide.with(holder.itemView.context)
                 .load(dataList[position].image_url)
-                .into(  holder.textView)
+                .into(  holder.imageview)
+
+            holder.imageview.setOnClickListener(View.OnClickListener {
+                holder.itemView.context.startActivity(
+                    Intent(holder.itemView.context,AnimeDetailsActivity::class.java)
+                        .putExtra("value",dataList[position]))
+
+            })
         }
         fun updatelist(list:List<Top>){
             dataList.addAll(list)
@@ -35,6 +44,6 @@ import kotlinx.android.synthetic.main.anime_list.view.*
         }
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var textView: ImageView =itemView.findViewById(R.id.title)
+            var imageview: ImageView =itemView.findViewById(R.id.title)
         }
     }

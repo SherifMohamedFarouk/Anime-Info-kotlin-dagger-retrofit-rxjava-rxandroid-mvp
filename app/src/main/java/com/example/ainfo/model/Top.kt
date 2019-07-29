@@ -1,5 +1,8 @@
 package com.example.ainfo.model
 
+import android.os.Parcel
+import android.os.Parcelable
+
 data class Top(
     val end_date: String,
     val episodes: Int,
@@ -12,4 +15,42 @@ data class Top(
     val title: String,
     val type: String,
     val url: String
-)
+) : Parcelable {
+    constructor(source: Parcel) : this(
+        source.readString(),
+        source.readInt(),
+        source.readString(),
+        source.readInt(),
+        source.readInt(),
+        source.readInt(),
+        source.readDouble(),
+        source.readString(),
+        source.readString(),
+        source.readString(),
+        source.readString()
+    )
+
+    override fun describeContents() = 0
+
+    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
+        writeString(end_date)
+        writeInt(episodes)
+        writeString(image_url)
+        writeInt(mal_id)
+        writeInt(members)
+        writeInt(rank)
+        writeDouble(score)
+        writeString(start_date)
+        writeString(title)
+        writeString(type)
+        writeString(url)
+    }
+
+    companion object {
+        @JvmField
+        val CREATOR: Parcelable.Creator<Top> = object : Parcelable.Creator<Top> {
+            override fun createFromParcel(source: Parcel): Top = Top(source)
+            override fun newArray(size: Int): Array<Top?> = arrayOfNulls(size)
+        }
+    }
+}
