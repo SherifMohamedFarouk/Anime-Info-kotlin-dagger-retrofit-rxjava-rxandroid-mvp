@@ -17,9 +17,9 @@ class TopAnimeRepo @Inject constructor() {
     var disposable: Disposable? = null
 
 
-     fun gettopanime() {
+     fun gettopanime(page :Int ) {
 
-        disposable = client.getArticles()
+        disposable = client.getTopAnime(page)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

@@ -10,8 +10,8 @@ import retrofit2.http.*
 interface AnimeApiClient {
 
         /* Get list of articles */
-        @GET("anime/")
-        fun getArticles(): Observable<TopModel>
+        @GET("anime/{page}")
+        fun getTopAnime(@Path(value = "page") page: Int): Observable<TopModel>
 
 //        /* Get one article by it's id */
 //        @GET("posts/{id}")anime/{page}

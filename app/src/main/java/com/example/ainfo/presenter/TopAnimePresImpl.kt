@@ -18,7 +18,7 @@ class TopAnimePresImpl@Inject constructor(var topAnimeRepo: TopAnimeRepo ) : Top
     }
 
 
-    fun getTopAnime(){
-     topAnimeRepo.gettopanime()
+    fun getTopAnime(page : Int){
+     topAnimeRepo.gettopanime(page)
     }
 }
