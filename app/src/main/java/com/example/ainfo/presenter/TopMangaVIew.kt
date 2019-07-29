@@ -1,7 +1,7 @@
 package com.example.ainfo.presenter
 
-import com.example.ainfo.model.Top
+import com.example.ainfo.model.manga.TopM
 
 interface TopMangaVIew {
-    fun getmanga(top: List<Top>)
+    fun getmanga(top: List<TopM>)
 }

@@ -1,7 +1,7 @@
 package com.example.ainfo.presenter
 
-import com.example.ainfo.model.Top
-import com.example.ainfo.model.TopModel
+import com.example.ainfo.model.anime.Top
+import com.example.ainfo.model.manga.TopM
 import com.example.ainfo.repo.TopAnimeRepo
 import javax.inject.Inject
 
@@ -9,7 +9,7 @@ class TopAnimePresImpl@Inject constructor(var topAnimeRepo: TopAnimeRepo ) : Top
 
     lateinit var topAnimeView: TopAnimeView
     lateinit var topMangaVIew: TopMangaVIew
-    override fun mangafetech(top: List<Top>) {
+    override fun mangafetech(top: List<TopM>) {
      topMangaVIew.getmanga(top)
     }
 

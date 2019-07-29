@@ -1,5 +1,6 @@
 package com.example.ainfo.utils
 import com.example.ainfo.model.TopModel
+import com.example.ainfo.model.manga.TopManga
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -13,7 +14,7 @@ interface AnimeApiClient {
         @GET("top/anime/{page}")
         fun getTopAnime(@Path(value = "page") page: Int): Observable<TopModel>
         @GET("top/manga/{page}")
-        fun getTopmanga(@Path(value = "page") page: Int): Observable<TopModel>
+        fun getTopmanga(@Path(value = "page") page: Int): Observable<TopManga>
 //        /* Get one article by it's id */
 //        @GET("posts/{id}")anime/{page}
 //        fun getArticle(@Path("id") id: Int): Observable<Article>

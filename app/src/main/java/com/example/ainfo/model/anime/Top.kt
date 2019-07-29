@@ -1,4 +1,4 @@
-package com.example.ainfo.model
+package com.example.ainfo.model.anime
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -14,7 +14,8 @@ data class Top(
     val start_date: String,
     val title: String,
     val type: String,
-    val url: String
+    val url: String,
+    val volumes: Int
 ) : Parcelable {
     constructor(source: Parcel) : this(
         source.readString(),
@@ -27,7 +28,8 @@ data class Top(
         source.readString(),
         source.readString(),
         source.readString(),
-        source.readString()
+        source.readString(),
+        source.readInt()
     )
 
     override fun describeContents() = 0
@@ -44,6 +46,7 @@ data class Top(
         writeString(title)
         writeString(type)
         writeString(url)
+        writeInt(volumes)
     }
 
     companion object {

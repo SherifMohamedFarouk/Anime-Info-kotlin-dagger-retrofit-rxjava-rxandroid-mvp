@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 
 import com.example.ainfo.R
 import com.example.ainfo.adapters.MangaAdapter
-import com.example.ainfo.model.Top
+import com.example.ainfo.model.manga.TopM
 import com.example.ainfo.presenter.TopAnimePresImpl
 import com.example.ainfo.presenter.TopMangaVIew
 import com.example.ainfo.utils.PaginationScrollListener
 import com.veirn.animest.di.DaggerMainComponent
-import kotlinx.android.synthetic.main.fragment_top_anime.*
 import kotlinx.android.synthetic.main.fragment_top_manga.*
 import javax.inject.Inject
 
@@ -75,7 +74,7 @@ class TopMangaFragment : Fragment(),TopMangaVIew {
         mangaAdapter.notifyDataSetChanged()
 
     }
-    override fun getmanga(top: List<Top>) {
+    override fun getmanga(top: List<TopM>) {
       Log.d("mangaa",top.toString())
         mangaAdapter.updatelist(top)
         mangaprogress.visibility = INVISIBLE

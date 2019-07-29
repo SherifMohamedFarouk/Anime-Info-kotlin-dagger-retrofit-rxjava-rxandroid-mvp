@@ -7,20 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.example.ainfo.R
 import com.example.ainfo.adapters.RecyclerViewAdapter
-import com.example.ainfo.model.Top
+import com.example.ainfo.model.anime.Top
 import com.example.ainfo.presenter.TopAnimePresImpl
 import com.example.ainfo.presenter.TopAnimeView
-import com.example.ainfo.utils.AnimeApiClient
 import com.example.ainfo.utils.PaginationScrollListener
 import com.veirn.animest.di.DaggerMainComponent
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_top_anime.*
 import javax.inject.Inject
 

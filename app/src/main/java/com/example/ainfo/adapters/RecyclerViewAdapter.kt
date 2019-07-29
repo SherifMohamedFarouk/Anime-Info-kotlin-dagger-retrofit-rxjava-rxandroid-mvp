@@ -1,22 +1,18 @@
 package com.example.ainfo.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ainfo.R
-import com.example.ainfo.model.Top
-import com.example.ainfo.model.TopModel
+import com.example.ainfo.model.anime.Top
 import com.example.ainfo.ui.details.AnimeDetailsActivity
-import kotlinx.android.synthetic.main.anime_list.view.*
 
-    class RecyclerViewAdapter(private var context: FragmentActivity?,private var dataList:ArrayList<Top>):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(private var context: FragmentActivity?,private var dataList:ArrayList<Top>):RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
         override fun getItemCount(): Int {
             return dataList.size;
         }

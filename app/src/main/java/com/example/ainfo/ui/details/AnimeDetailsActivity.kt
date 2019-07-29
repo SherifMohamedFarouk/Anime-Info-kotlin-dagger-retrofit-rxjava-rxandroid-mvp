@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
-import com.example.ainfo.model.Top
+import com.example.ainfo.model.anime.Top
 import kotlinx.android.synthetic.main.activity_anime_details.*
 import android.content.Intent
-import android.R
 import android.net.Uri
 
 
