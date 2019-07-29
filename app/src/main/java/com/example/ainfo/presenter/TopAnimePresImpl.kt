@@ -8,6 +8,11 @@ import javax.inject.Inject
 class TopAnimePresImpl@Inject constructor(var topAnimeRepo: TopAnimeRepo ) : TopAnimePres {
 
     lateinit var topAnimeView: TopAnimeView
+    lateinit var topMangaVIew: TopMangaVIew
+    override fun mangafetech(top: List<Top>) {
+     topMangaVIew.getmanga(top)
+    }
+
     override fun animefetech(top: List<Top>) {
         topAnimeView.getanime(top)
 
@@ -20,5 +25,9 @@ class TopAnimePresImpl@Inject constructor(var topAnimeRepo: TopAnimeRepo ) : Top
 
     fun getTopAnime(page : Int){
      topAnimeRepo.gettopanime(page)
+    }
+
+    fun getTopManga(page : Int){
+        topAnimeRepo.gettopmanga(page)
     }
 }

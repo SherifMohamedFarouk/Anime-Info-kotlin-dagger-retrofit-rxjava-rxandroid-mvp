@@ -10,9 +10,10 @@ import retrofit2.http.*
 interface AnimeApiClient {
 
         /* Get list of articles */
-        @GET("anime/{page}")
+        @GET("top/anime/{page}")
         fun getTopAnime(@Path(value = "page") page: Int): Observable<TopModel>
-
+        @GET("top/manga/{page}")
+        fun getTopmanga(@Path(value = "page") page: Int): Observable<TopModel>
 //        /* Get one article by it's id */
 //        @GET("posts/{id}")anime/{page}
 //        fun getArticle(@Path("id") id: Int): Observable<Article>
@@ -36,7 +37,7 @@ interface AnimeApiClient {
                 val retrofit = Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("$base_url/top/")
+                    .baseUrl("$base_url/")
                     .build()
 
                 return retrofit.create(AnimeApiClient::class.java)

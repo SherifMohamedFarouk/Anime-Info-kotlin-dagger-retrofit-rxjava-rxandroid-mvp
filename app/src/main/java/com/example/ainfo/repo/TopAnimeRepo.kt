@@ -30,4 +30,17 @@ class TopAnimeRepo @Inject constructor() {
             )
 
     }
+    fun gettopmanga(page :Int ) {
+
+        disposable = client.getTopmanga(page)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { result -> Log.v("anime", "" + result)
+                    topAnimePresImpl.mangafetech(result.top)
+                },
+                { error -> Log.e("ERROR", error.message) }
+            )
+
+    }
 }

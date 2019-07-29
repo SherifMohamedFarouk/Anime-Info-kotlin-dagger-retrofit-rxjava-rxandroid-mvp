@@ -12,14 +12,14 @@
             android:layout_margin="16sp"
             android:layout_height="200sp">
 
-    <ImageView
-            android:id="@+id/image1"
-            android:textSize="18sp"
-            android:padding="6dp"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <ImageView
+                android:id="@+id/image2"
+                android:textSize="18sp"
+                android:padding="6dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>

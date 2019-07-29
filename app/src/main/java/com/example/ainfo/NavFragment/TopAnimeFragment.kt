@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
 
 import com.example.ainfo.R
@@ -46,9 +47,11 @@ class TopAnimeFragment : Fragment(), TopAnimeView {
         AnimeRecycle.adapter = animeAdapter
         AnimeRecycle.layoutManager = GridLayoutManager(activity,2)
         AnimeRecycle.setHasFixedSize(false)
+
         topAnimePresImpl.topAnimeView = this
         topAnimePresImpl.getTopAnime(page++)
         animeAdapter.notifyDataSetChanged()
+
         AnimeRecycle.addOnScrollListener(object : PaginationScrollListener(AnimeRecycle.layoutManager as GridLayoutManager){
             override fun isLastPage(): Boolean {
                 return isLastPage
@@ -77,6 +80,7 @@ class TopAnimeFragment : Fragment(), TopAnimeView {
     override fun getanime(top: List<Top>) {
         Log.d("animee",top.toString())
         animeAdapter.updatelist(top)
+        animeprogress.visibility = View.INVISIBLE
 
     }
 

@@ -44,6 +44,6 @@ import kotlinx.android.synthetic.main.anime_list.view.*
         }
 
         class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            var imageview: ImageView =itemView.findViewById(R.id.title)
+            var imageview: ImageView =itemView.findViewById(R.id.image1)
         }
     }
