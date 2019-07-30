@@ -43,4 +43,19 @@ class TopAnimeRepo @Inject constructor() {
             )
 
     }
+
+    fun getsearchanime(query :String ) {
+
+        disposable = client.getSanime(query)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { result -> Log.v("search", "" + result)
+                    topAnimePresImpl.searchfetech(result.results)
+                },
+                { error -> Log.e("ERROR", query) }
+            )
+
+    }
+
 }

@@ -107,4 +107,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0-rc02'
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0-rc02'
 
+
+    implementation 'com.github.rtoshiro.fullscreenvideoview:fullscreenvideoview:1.1.2'
+
 }
