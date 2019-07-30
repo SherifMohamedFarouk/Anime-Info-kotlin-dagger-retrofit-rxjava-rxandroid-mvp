@@ -13,6 +13,7 @@ import com.example.ainfo.model.anime.Top
 import com.example.ainfo.model.manga.TopM
 import com.example.ainfo.model.searchanime.Result
 import com.example.ainfo.ui.details.MangaDetailsActivity
+import com.example.ainfo.ui.details.SearchDetailsActivity
 
 class SearchAdapter (private var context: FragmentActivity?, private var dataList:ArrayList<Result>):
     RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
@@ -29,13 +30,13 @@ class SearchAdapter (private var context: FragmentActivity?, private var dataLis
             .load(dataList[position].image_url)
             .into(  holder.imageview)
         if(dataList[position]!= null){
-//            holder.imageview.setOnClickListener(View.OnClickListener {
-//                holder.itemView.context.startActivity(
-//                    Intent(holder.itemView.context, MangaDetailsActivity::class.java)
-//                        .putExtra("value1",dataList[position])
-//                )
-//
-//            })
+            holder.imageview.setOnClickListener(View.OnClickListener {
+                holder.itemView.context.startActivity(
+                    Intent(holder.itemView.context, SearchDetailsActivity::class.java)
+                        .putExtra("value2",dataList[position])
+                )
+
+            })
         }
     }
 
