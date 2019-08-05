@@ -1,6 +1,4 @@
-#Knowledge with :
+# Getting Started
 
-*Android Studio
-*Familiar with Kotlin
-*Familiar with Dependency Injections
-*Familiar with Networking
+Knowledge with :
+
